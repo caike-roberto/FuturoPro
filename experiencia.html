@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experiência Interativa - FuturoPrø</title>
+        <meta name="description" content="Experimente de forma interativa como funciona a plataforma FuturoPrø e sua metodologia de ensino personalizado.">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a href="index.html" class="logo">FuturoPrø</a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Início</a></li>
+                        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                        <li><a href="solucao.html" class="nav-link">Solução</a></li>
+                        <li><a href="integrantes.html" class="nav-link">Integrantes</a></li>
+                        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                        <li><a href="contato.html" class="nav-link">Contato</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <div class="container">
+                    <h1>Experiência Interativa</h1>
+                    <p>Veja na prática como nossa IA personaliza sua jornada de aprendizado</p>
+                </div>
+            </section>
+
+            <section class="experience-section">
+                <div class="container">
+                    <div class="experience-intro">
+                        <h2>Descubra Seu Perfil Profissional Ideal</h2>
+                        <p>Responda 12 perguntas e descubra qual área de tecnologia combina melhor com você.</p>
+                    </div>
+
+                    <div class="quiz-container" id="quizContainer">
+                        <div class="quiz-step active" id="step1">
+                            <h3>Questão 1 de 12</h3>
+                            <p class="quiz-question">Você prefere lidar com códigos, pessoas ou ideias?</p>
+                            <button class="quiz-option" onclick="selectAnswer(1, 'A')">💻 Códigos</button>
+                            <button class="quiz-option" onclick="selectAnswer(1, 'B')">🤝 Pessoas</button>
+                            <button class="quiz-option" onclick="selectAnswer(1, 'C')">💡 Ideias</button>
+                        </div>
+
+                        <div class="quiz-step" id="step2">
+                            <h3>Questão 2 de 12</h3>
+                            <p class="quiz-question">Quando surge um problema, você tende a...</p>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'A')">📊 Analisar detalhadamente</button>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'B')">🎨 Buscar soluções criativas</button>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'C')">🤝 Pedir ajuda a colegas</button>
+                        </div>
+
+                        <div class="quiz-step" id="step3">
+                            <h3>Questão 3 de 12</h3>
+                            <p class="quiz-question">Você se considera uma pessoa organizada?</p>
+                            <button class="quiz-option" onclick="selectAnswer(3, 'A')">✅ Sim, muito organizada</button>
+                            <button class="quiz-option" onclick="selectAnswer(3, 'B')">⚖️ Moderadamente organizada</button>
+                            <button class="quiz-option" onclick="selectAnswer(3, 'C')">🎨 Não muito organizada</button>
+                        </div>
+
+                        <div class="quiz-step" id="step4">
+                            <h3>Questão 4 de 12</h3>
+                            <p class="quiz-question">O que você mais gosta em um trabalho?</p>
+                            <button class="quiz-option" onclick="selectAnswer(4, 'A')">🚀 Criar e inovar</button>
+                            <button class="quiz-option" onclick="selectAnswer(4, 'B')">🤝 Ajudar os outros</button>
+                            <button class="quiz-option" onclick="selectAnswer(4, 'C')">📋 Gerenciar projetos</button>
+                            <button class="quiz-option" onclick="selectAnswer(4, 'D')">📊 Analisar dados</button>
+                        </div>
+
+                        <div class="quiz-step" id="step5">
+                            <h3>Questão 5 de 12</h3>
+                            <p class="quiz-question">Qual tipo de tarefa você prefere?</p>
+                            <button class="quiz-option" onclick="selectAnswer(5, 'A')">💻 Programar e desenvolver</button>
+                            <button class="quiz-option" onclick="selectAnswer(5, 'B')">🎨 Projetar e desenhar</button>
+                            <button class="quiz-option" onclick="selectAnswer(5, 'C')">📊 Analisar informações</button>
+                            <button class="quiz-option" onclick="selectAnswer(5, 'D')">🤝 Suporte e atendimento</button>
+                            <button class="quiz-option" onclick="selectAnswer(5, 'E')">📋 Gerenciar equipes</button>
+                        </div>
+
+                        <div class="quiz-step" id="step6">
+                            <h3>Questão 6 de 12</h3>
+                            <p class="quiz-question">O que te faz sentir mais satisfeito?</p>
+                            <button class="quiz-option" onclick="selectAnswer(6, 'A')">🧩 Resolver problemas complexos</button>
+                            <button class="quiz-option" onclick="selectAnswer(6, 'B')">🎨 Criar algo novo</button>
+                            <button class="quiz-option" onclick="selectAnswer(6, 'C')">🔍 Descobrir padrões</button>
+                            <button class="quiz-option" onclick="selectAnswer(6, 'D')">🤝 Ajudar alguém</button>
+                            <button class="quiz-option" onclick="selectAnswer(6, 'E')">👥 Liderar um time</button>
+                        </div>
+
+                        <div class="quiz-step" id="step7">
+                            <h3>Questão 7 de 12</h3>
+                            <p class="quiz-question">Como você lida com problemas?</p>
+                            <button class="quiz-option" onclick="selectAnswer(7, 'A')">📋 Analisando e planejando</button>
+                            <button class="quiz-option" onclick="selectAnswer(7, 'B')">💡 Buscando soluções criativas</button>
+                            <button class="quiz-option" onclick="selectAnswer(7, 'C')">👨‍🏫 Consultando especialistas</button>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(7, 'D')">👥 Trabalhando em equipe</button>
+                            <button class="quiz-option" onclick="selectAnswer(7, 'E')">🗂️ Organizando recursos</button>
+                        </div>
+
+                        <div class="quiz-step" id="step8">
+                            <h3>Questão 8 de 12</h3>
+                            <p class="quiz-question">Qual ambiente de trabalho você prefere?</p>
+                            <button class="quiz-option" onclick="selectAnswer(8, 'A')">🧘 Calmo e focado</button>
+                            <button class="quiz-option" onclick="selectAnswer(8, 'B')">🎨 Criativo e dinâmico</button>
+                            <button class="quiz-option" onclick="selectAnswer(8, 'C')">📊 Analítico e estruturado</button>
+                            <button class="quiz-option" onclick="selectAnswer(8, 'D')">🤝 Colaborativo e social</button>
+                            <button class="quiz-option" onclick="selectAnswer(8, 'E')">📋 Organizado e eficiente</button>
+                        </div>
+
+                        <div class="quiz-step" id="step9">
+                            <h3>Questão 9 de 12</h3>
+                            <p class="quiz-question">O que mais te incomoda em um trabalho?</p>
+                            <button class="quiz-option" onclick="selectAnswer(9, 'A')">😴 Falta de desafios</button>
+                            <button class="quiz-option" onclick="selectAnswer(9, 'B')">🔁 Rotina monótona</button>
+                            <button class="quiz-option" onclick="selectAnswer(9, 'C')">📉 Pouca análise de dados</button>
+                            <button class="quiz-option" onclick="selectAnswer(9, 'D')">🚫 Falta de apoio da equipe</button>
+                            <button class="quiz-option" onclick="selectAnswer(9, 'E')">🌪️ Desorganização</button>
+                        </div>
+
+                        <div class="quiz-step" id="step10">
+                            <h3>Questão 10 de 12</h3>
+                            <p class="quiz-question">Quando inicia um projeto, qual sua primeira atitude?</p>
+                            <button class="quiz-option" onclick="selectAnswer(10, 'A')">📐 Planejar e estruturar</button>
+                            <button class="quiz-option" onclick="selectAnswer(10, 'B')">💡 Buscar ideias inovadoras</button>
+                            <button class="quiz-option" onclick="selectAnswer(10, 'C')">📊 Coletar e analisar dados</button>
+                            <button class="quiz-option" onclick="selectAnswer(10, 'D')">👥 Reunir a equipe</button>
+                            <button class="quiz-option" onclick="selectAnswer(10, 'E')">📋 Organizar tarefas e prazos</button>
+                        </div>
+
+                        <div class="quiz-step" id="step11">
+                            <h3>Questão 11 de 12</h3>
+                            <p class="quiz-question">Como você aprende melhor?</p>
+                            <button class="quiz-option" onclick="selectAnswer(11, 'A')">🛠️ Praticando e experimentando</button>
+                            <button class="quiz-option" onclick="selectAnswer(11, 'B')">🎨 Visualizando e criando</button>
+                            <button class="quiz-option" onclick="selectAnswer(11, 'C')">📚 Analisando e refletindo</button>
+                            <button class="quiz-option" onclick="selectAnswer(11, 'D')">💬 Discutindo com outros</button>
+                            <button class="quiz-option" onclick="selectAnswer(11, 'E')">🗂️ Organizando informações</button>
+                        </div>
+
+                        <div class="quiz-step" id="step12">
+                            <h3>Questão 12 de 12</h3>
+                            <p class="quiz-question">Qual frase mais combina com você?</p>
+                            <button class="quiz-option" onclick="selectAnswer(12, 'A')">💻 "Adoro resolver problemas técnicos."</button>
+                            <button class="quiz-option" onclick="selectAnswer(12, 'B')">🎨 "Criar algo novo me inspira."</button>
+                            <button class="quiz-option" onclick="selectAnswer(12, 'C')">📊 "Analisar dados é minha paixão."</button>
+                            <button class="quiz-option" onclick="selectAnswer(12, 'D')">🤝 "Ajudar os outros é gratificante."</button>
+                            <button class="quiz-option" onclick="selectAnswer(12, 'E')">📋 "Organizar e liderar é meu forte."</button>
+                        </div>
+
+                        <div class="quiz-results" id="results" style="display: none;">
+                            <div class="results-header">
+                                <h3>Seu Perfil Profissional foi Identificado!</h3>
+                                <p>Com base nas suas respostas, identificamos sua área ideal:</p>
+                            </div>
+
+                            <div class="results-content">
+                                <div class="result-card main-result">
+                                    <h4 id="profileTitle"></h4>
+                                    <div id="profileDescription"></div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>🎯 Trilha Recomendada</h4>
+                                    <div id="pathSummary"></div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>💼 Oportunidades de Carreira</h4>
+                                    <div id="careerSummary"></div>
+                                </div>
+
+                                <div class="result-card">
+                                    <h4>🔧 Habilidades a Desenvolver</h4>
+                                    <div id="skillsSummary"></div>
+                                </div>
+                            </div>
+
+                            <div class="results-actions">
+                                <button class="btn btn-primary" onclick="openModal()">Ver Trilha Completa</button>
+                                <button class="btn btn-secondary" onclick="resetQuiz()">Refazer Teste</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-indicator" id="progressIndicator">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 8.33%"></div>
+                        </div>
+                        <p class="progress-text">Pergunta <span id="currentStep">1</span> de 12</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience-features">
+                <div class="container">
+                    <h2>Como Nossa IA Trabalha Para Você</h2>
+                    <div class="features-timeline">
+                        <article class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <h3>Análise de Perfil</h3>
+                                <p>Avaliamos seu nível atual, experiências anteriores e objetivos de carreira para entender exatamente onde você está e aonde quer chegar.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <h3>Criação da Trilha</h3>
+                                <p>Nossa IA compara seu perfil com milhares de casos de sucesso e monta uma sequência otimizada de aprendizado, eliminando conteúdo desnecessário.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <h3>Adaptação Contínua</h3>
+                                <p>Conforme você avança, o sistema monitora seu desempenho e ajusta a dificuldade e o ritmo automaticamente para maximizar seu aprendizado.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div class="timeline-content">
+                                <h3>Conexão com Mercado</h3>
+                                <p>Ao atingir marcos importantes, conectamos você automaticamente com oportunidades de emprego compatíveis com suas novas habilidades.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <div class="container">
+                    <h2>Pronto para Começar Sua Jornada?</h2>
+                    <p>Entre em contato e receba uma avaliação personalizada gratuita.</p>
+                    <a href="contato.html" class="btn btn-primary">Falar com um Consultor</a>
+                </div>
+            </section>
+        </main>
+
+        <div id="detailsModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <h2>Módulos da Sua Trilha</h2>
+                <div id="modalModules"></div>
+                <div class="modal-footer">
+                    <a href="contato.html" class="btn btn-primary">Começar Agora</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>FuturoPrø</h3>
+                        <p>Transformando ideias em realidade através da educação e inovação tecnológica.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Links Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="solucao.html">Solução</a></li>
+                            <li><a href="integrantes.html">Integrantes</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <ul class="footer-links">
+                            <li><a href="contato.html">Fale Conosco</a></li>
+                            <li><a href="mailto:contato@futuropro.com.br">contato@futuropro.com.br</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 FuturoPrø.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - FuturoPrø</title>
+    <meta name="description" content="Perguntas frequentes sobre o FuturoPrø, plataforma de capacitação profissional e inteligência artificial.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">FuturoPrø</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="solucao.html" class="nav-link">Solução</a></li>
+                    <li><a href="integrantes.html" class="nav-link">Integrantes</a></li>
+                    <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Perguntas Frequentes</h1>
+                <p>Tire suas dúvidas sobre o FuturoPrø e como podemos ajudar na sua jornada profissional</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-list">
+                    <article class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>O que é o FuturoPrø?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O FuturoPrø é uma solução digital criada para orientar jovens e profissionais na escolha de carreiras alinhadas ao seu perfil, utilizando um chatbot inteligente integrado ao Watson Assistant, Node-RED e Telegram. A plataforma realiza perguntas ao usuário, analisa suas respostas e identifica seus interesses principais, gerando recomendações de carreiras compatíveis.</p>
+                            <p>A solução também apresenta as habilidades essenciais de cada carreira recomendada, indica cursos gratuitos e pagos  relacionados à área escolhida e oferece um ambiente educativo simples, inclusivo e fácil de navegar. Além disso, utiliza um banco de dados simulado contendo informações sobre profissões, tendências do mercado e trilhas de capacitação.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Como funciona o sistema de IA da plataforma?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nossa inteligência artificial analisa seu formulário de carreira para criar uma trilha de aprendizado personalizada. O sistema identifica lacunas de conhecimento, sugere cursos relevantes e indicação de plataformas.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Quais são os requisitos para participar?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Não há requisitos específicos! O FuturoPrø é inclusivo e aceita alunos de todos os níveis, desde iniciantes até profissionais experientes buscando requalificação. Você precisa apenas de acesso à internet, disposição para aprender e vontade de investir no seu futuro profissional.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Há garantia de emprego após a conclusão?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Embora não possamos garantir emprego, nossa taxa de empregabilidade é de 95%. Temos parcerias com centenas de empresas que priorizam nossos alunos em seus processos seletivos.</p>
+                        </div>
+                    </article>
+
+                    <article class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>O que torna o FuturoPrø diferente de outras plataformas?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nossa principal diferença é a personalização através de IA avançada, que cria uma jornada única para cada aluno. Também nos destacamos pela conexão direta com o mercado de trabalho, conteúdo sempre atualizado, mentoria ativa e uma comunidade engajada de profissionais e empresas parceiras.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="faq-cta">
+                    <h2>Ainda tem dúvidas?</h2>
+                    <p>Nossa equipe está pronta para ajudar você.</p>
+                    <a href="contato.html" class="btn btn-primary">Entre em Contato</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FuturoPrø</h3>
+                    <p>Transformando ideias em realidade através da educação e inovação tecnológica.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Solução</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                        <li><a href="mailto:contato@futuropro.com.br">contato@futuropro.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FuturoPrø.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

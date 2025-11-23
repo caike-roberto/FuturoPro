@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiência Interativa - FuturoPrø</title>
+    <meta name="description" content="Experimente de forma interativa como funciona a plataforma FuturoPrø e sua metodologia de ensino personalizado.">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estiloMD.css">
+    <link rel="stylesheet" href="css/estiloSM.css">
+    <link rel="stylesheet" href="css/estiloXS.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">FuturoPrø</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="solucao.html" class="nav-link">Solução</a></li>
+                    <li><a href="integrantes.html" class="nav-link">Integrantes</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Experiência Interativa</h1>
+                <p>Veja na prática como nossa IA personaliza sua jornada de aprendizado</p>
+            </div>
+        </section>
+
+        <section class="experience-section">
+            <div class="container">
+                <div class="experience-intro">
+                    <h2>Simule Sua Jornada no FuturoPrø</h2>
+                    <p>Responda algumas perguntas e veja como nossa inteligência artificial criaria uma trilha personalizada para você.</p>
+                </div>
+
+                <div class="quiz-container" id="quizContainer">
+                    <div class="quiz-step active" id="step1">
+                        <h3>Qual é seu nível atual de experiência?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" onclick="selectAnswer(1, 'beginner')">
+                                <strong>Iniciante</strong>
+                                <p>Pouca ou nenhuma experiência com tecnologia</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(1, 'intermediate')">
+                                <strong>Intermediário</strong>
+                                <p>Já tenho alguma experiência na área</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(1, 'advanced')">
+                                <strong>Avançado</strong>
+                                <p>Profissional experiente buscando especialização</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step2">
+                        <h3>Qual área te interessa mais?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" onclick="selectAnswer(2, 'dev')">
+                                <strong>Desenvolvimento Web</strong>
+                                <p>Criar sites e aplicações</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'data')">
+                                <strong>Ciência de Dados</strong>
+                                <p>Análise e inteligência artificial</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'design')">
+                                <strong>UX/UI Design</strong>
+                                <p>Design de interfaces e experiência</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(2, 'mobile')">
+                                <strong>Desenvolvimento Mobile</strong>
+                                <p>Apps para iOS e Android</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-step" id="step3">
+                        <h3>Quanto tempo você pode dedicar por semana?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-option" onclick="selectAnswer(3, '5h')">
+                                <strong>5 horas/semana</strong>
+                                <p>Ritmo tranquilo, aprendizado gradual</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(3, '10h')">
+                                <strong>10 horas/semana</strong>
+                                <p>Ritmo moderado, progresso consistente</p>
+                            </button>
+                            <button class="quiz-option" onclick="selectAnswer(3, '20h')">
+                                <strong>20+ horas/semana</strong>
+                                <p>Ritmo intensivo, resultados rápidos</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-results" id="results" style="display: none;">
+                        <div class="results-header">
+                            <h3>Sua Trilha Personalizada está Pronta!</h3>
+                            <p>Com base nas suas respostas, nossa IA criou o caminho ideal para você:</p>
+                        </div>
+
+                        <div class="results-content">
+                            <div class="result-card">
+                                <h4>📊 Seu Perfil</h4>
+                                <div id="profileSummary"></div>
+                            </div>
+
+                            <div class="result-card">
+                                <h4>🎯 Trilha Recomendada</h4>
+                                <div id="pathSummary"></div>
+                            </div>
+
+                            <div class="result-card">
+                                <h4>⏱️ Tempo Estimado</h4>
+                                <div id="timeSummary"></div>
+                            </div>
+
+                            <div class="result-card">
+                                <h4>💼 Oportunidades de Carreira</h4>
+                                <div id="careerSummary"></div>
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-primary" onclick="openModal()">Ver Módulos Detalhados</button>
+                            <button class="btn btn-secondary" onclick="resetQuiz()">Refazer Simulação</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-indicator" id="progressIndicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+                    </div>
+                    <p class="progress-text">Etapa <span id="currentStep">1</span> de 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-features">
+            <div class="container">
+                <h2>Como Nossa IA Trabalha Para Você</h2>
+                <div class="features-timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h3>Análise de Perfil</h3>
+                            <p>Avaliamos seu nível atual, experiências anteriores e objetivos de carreira para entender exatamente onde você está e aonde quer chegar.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h3>Criação da Trilha</h3>
+                            <p>Nossa IA compara seu perfil com milhares de casos de sucesso e monta uma sequência otimizada de aprendizado, eliminando conteúdo desnecessário.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h3>Adaptação Contínua</h3>
+                            <p>Conforme você avança, o sistema monitora seu desempenho e ajusta a dificuldade e o ritmo automaticamente para maximizar seu aprendizado.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content">
+                            <h3>Conexão com Mercado</h3>
+                            <p>Ao atingir marcos importantes, conectamos você automaticamente com oportunidades de emprego compatíveis com suas novas habilidades.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Pronto para Começar Sua Jornada?</h2>
+                <p>Entre em contato e receba uma avaliação personalizada gratuita.</p>
+                <a href="contato.html" class="btn btn-primary">Falar com um Consultor</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Módulos da Sua Trilha</h2>
+            <div id="modalModules"></div>
+            <div class="modal-footer">
+                <a href="contato.html" class="btn btn-primary">Começar Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FuturoPrø</h3>
+                    <p>Transformando ideias em realidade através da educação e inovação tecnológica.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Solução</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                        <li><a href="mailto:contato@futuropro.com.br">contato@futuropro.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FuturoPrø. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
