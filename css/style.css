@@ -1255,7 +1255,6 @@ body {
     line-height: 1.7;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -1312,7 +1311,6 @@ body {
     text-align: center;
 }
 
-/* Footer */
 footer {
     background-color: var(--color-text);
     color: var(--color-white);
@@ -1374,7 +1372,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1406,7 +1403,6 @@ footer {
     }
 }
 
-/* Responsive Design */
 @media screen and (max-width: 992px) {
     .hero-content h1 {
         font-size: 2.5rem;
