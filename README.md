@@ -21,6 +21,10 @@ Além disso, faltam ferramentas acessíveis de orientação profissional persona
 
 O FuturoPrø surge para preencher essa lacuna, entregando clareza, direcionamento e conhecimento atualizado para quem busca se inserir ou se reinventar no mercado.
 
+## 🔗 Link do projeto (GitHub Pages)
+[GS FuturoPrø](https://github.com/caike-roberto/FuturoPro)
+
+
 ## 🧩 Estrutura do Projeto
 
 - index.html — Página inicial
