@@ -3,7 +3,7 @@ const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
         menuToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
@@ -18,8 +18,11 @@ if (menuToggle && navMenu) {
     });
 
     // Fechar menu ao clicar fora
-    document.addEventListener('click', function(event) {
-        const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+    document.addEventListener('click', function (event) {
+        const isClickInside =
+            navMenu.contains(event.target) ||
+            menuToggle.contains(event.target);
+
         if (!isClickInside && navMenu.classList.contains('active')) {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
@@ -31,13 +34,11 @@ if (menuToggle && navMenu) {
 function toggleFaq(button) {
     const faqItem = button.parentElement;
     const isActive = faqItem.classList.contains('active');
-    
-    // Fechar todos os itens abertos
+
     document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.remove('active');
     });
-    
-    // Abrir o item clicado se não estava aberto
+
     if (!isActive) {
         faqItem.classList.add('active');
     }
@@ -52,23 +53,22 @@ if (contactForm) {
     const messageInput = document.getElementById('message');
     const charCounter = document.getElementById('charCounter');
 
-    // Contador de caracteres para mensagem
+    // Contador de caracteres
     if (messageInput && charCounter) {
-        messageInput.addEventListener('input', function() {
+        messageInput.addEventListener('input', function () {
             const count = this.value.length;
             charCounter.textContent = `${count} / 1000`;
-            
-            if (count > 1000) {
-                charCounter.style.color = 'var(--color-error)';
-            } else {
-                charCounter.style.color = 'var(--color-text-light)';
-            }
+
+            charCounter.style.color =
+                count > 1000
+                    ? 'var(--color-error)'
+                    : 'var(--color-text-light)';
         });
     }
 
-    contactForm.addEventListener('submit', function(event) {
+    contactForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        
+
         let isValid = true;
 
         // Validar nome
@@ -96,15 +96,14 @@ if (contactForm) {
         }
 
         if (isValid) {
-            // Simular envio do formulário
             contactForm.style.display = 'none';
             document.getElementById('successMessage').style.display = 'block';
-            
-            // Reset após 5 segundos
+
             setTimeout(() => {
                 contactForm.reset();
                 contactForm.style.display = 'flex';
                 document.getElementById('successMessage').style.display = 'none';
+
                 if (charCounter) {
                     charCounter.textContent = '0 / 1000';
                 }
@@ -133,8 +132,9 @@ function validateMessage(message) {
 function showError(input, message) {
     const formGroup = input.parentElement;
     const errorElement = formGroup.querySelector('.error-message');
-    
+
     formGroup.classList.add('error');
+
     if (errorElement) {
         errorElement.textContent = message;
     }
@@ -147,119 +147,99 @@ function removeError(input) {
 
 // Validação em tempo real
 document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(input => {
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', function () {
         if (this.id === 'name' && this.value) {
-            if (!validateName(this.value)) {
-                showError(this, 'Por favor, insira seu nome completo (mínimo 3 caracteres).');
-            } else {
-                removeError(this);
-            }
+            !validateName(this.value)
+                ? showError(this, 'Por favor, insira seu nome completo (mínimo 3 caracteres).')
+                : removeError(this);
         }
-        
+
         if (this.id === 'email' && this.value) {
-            if (!validateEmail(this.value)) {
-                showError(this, 'Por favor, insira um email válido.');
-            } else {
-                removeError(this);
-            }
+            !validateEmail(this.value)
+                ? showError(this, 'Por favor, insira um email válido.')
+                : removeError(this);
         }
-        
+
         if (this.id === 'message' && this.value) {
-            if (!validateMessage(this.value)) {
-                showError(this, 'Por favor, insira uma mensagem (mínimo 10 caracteres).');
-            } else {
-                removeError(this);
-            }
+            !validateMessage(this.value)
+                ? showError(this, 'Por favor, insira uma mensagem (mínimo 10 caracteres).')
+                : removeError(this);
         }
     });
 });
 
-// Demo Tabs (solucao.html)
+// Demo Tabs
 function showDemo(demoNumber) {
-    // Remover classe active de todos os tabs e conteúdos
     document.querySelectorAll('.demo-tab').forEach(tab => {
         tab.classList.remove('active');
     });
+
     document.querySelectorAll('.demo-content').forEach(content => {
         content.classList.remove('active');
     });
-    
-    // Adicionar classe active ao tab e conteúdo clicado
+
     event.target.classList.add('active');
     document.getElementById(`demo${demoNumber}`).classList.add('active');
 }
 
-// Quiz Interativo (experiencia.html)
+// Quiz Interativo
 let quizAnswers = [];
-let quizScores = {
-    DEV: 0,
-    ANA: 0,
-    DES: 0,
-    SUP: 0,
-    GP: 0
-};
+let quizScores = { DEV: 0, ANA: 0, DES: 0, SUP: 0, GP: 0 };
 let currentQuizStep = 1;
 
-// Sistema de pontuação por pergunta e resposta
 const scoringSystem = {
-    1: { A: {DEV: 2, ANA: 2}, B: {SUP: 2, GP: 1}, C: {DES: 2} },
-    2: { A: {ANA: 2}, B: {DES: 2}, C: {SUP: 2} },
-    3: { A: {GP: 2}, B: {ANA: 1, GP: 1}, C: {DES: 1, DEV: 1} },
-    4: { A: {DES: 2, DEV: 1}, B: {SUP: 2}, C: {GP: 2}, D: {ANA: 2} },
-    5: { A: {DEV: 2, ANA: 1}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    6: { A: {DEV: 2}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    7: { A: {DEV: 2, ANA: 1}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    8: { A: {DEV: 1, ANA: 1}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    9: { A: {DEV: 2}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    10: { A: {DEV: 2}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    11: { A: {DEV: 2}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} },
-    12: { A: {DEV: 2}, B: {DES: 2}, C: {ANA: 2}, D: {SUP: 2}, E: {GP: 2} }
+    1: { A: { DEV: 2, ANA: 2 }, B: { SUP: 2, GP: 1 }, C: { DES: 2 } },
+    2: { A: { ANA: 2 }, B: { DES: 2 }, C: { SUP: 2 } },
+    3: { A: { GP: 2 }, B: { ANA: 1, GP: 1 }, C: { DES: 1, DEV: 1 } },
+    4: { A: { DES: 2, DEV: 1 }, B: { SUP: 2 }, C: { GP: 2 }, D: { ANA: 2 } },
+    5: { A: { DEV: 2, ANA: 1 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    6: { A: { DEV: 2 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    7: { A: { DEV: 2, ANA: 1 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    8: { A: { DEV: 1, ANA: 1 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    9: { A: { DEV: 2 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    10: { A: { DEV: 2 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    11: { A: { DEV: 2 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } },
+    12: { A: { DEV: 2 }, B: { DES: 2 }, C: { ANA: 2 }, D: { SUP: 2 }, E: { GP: 2 } }
 };
 
 function selectAnswer(step, answer) {
-    // Prevenir múltiplas respostas para mesma pergunta
     if (quizAnswers[step - 1]) {
         return;
     }
-    
-    // Salvar resposta
+
     quizAnswers[step - 1] = answer;
-    
-    // Calcular pontos
+
     const points = scoringSystem[step][answer];
+
     if (points) {
         for (let profile in points) {
             quizScores[profile] += points[profile];
         }
     }
-    
-    // Desabilitar botões da pergunta atual
+
     const currentStepEl = document.getElementById(`step${step}`);
     const buttons = currentStepEl.querySelectorAll('.quiz-option');
+
     buttons.forEach(btn => {
         btn.disabled = true;
+
         if (btn.onclick.toString().includes(`'${answer}'`)) {
             btn.style.borderColor = 'var(--color-primary)';
             btn.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
         }
     });
-    
-    // Aguardar um pouco antes de prosseguir
+
     setTimeout(() => {
-        // Esconder step atual
         currentStepEl.classList.remove('active');
-        
+
         if (step < 12) {
-            // Mostrar próximo step
             currentQuizStep = step + 1;
             document.getElementById(`step${currentQuizStep}`).classList.add('active');
-            
-            // Atualizar barra de progresso
+
             const progress = (currentQuizStep / 12) * 100;
             document.getElementById('progressFill').style.width = `${progress}%`;
             document.getElementById('currentStep').textContent = currentQuizStep;
         } else {
-            // Mostrar resultados
             showQuizResults();
             document.getElementById('progressIndicator').style.display = 'none';
         }
@@ -269,19 +249,17 @@ function selectAnswer(step, answer) {
 function showQuizResults() {
     const resultsDiv = document.getElementById('results');
     resultsDiv.style.display = 'block';
-    
-    // Encontrar perfil vencedor
+
     let maxScore = 0;
     let winningProfile = '';
-    
+
     for (let profile in quizScores) {
         if (quizScores[profile] > maxScore) {
             maxScore = quizScores[profile];
             winningProfile = profile;
         }
     }
-    
-    // Dados dos perfis
+
     const profileData = {
         DEV: {
             title: '💻 Desenvolvedor (DEV)',
@@ -319,31 +297,31 @@ function showQuizResults() {
             skills: ['Metodologias ágeis (Scrum, Kanban)', 'Gestão de equipes', 'Ferramentas de projeto (Jira, Trello)', 'Comunicação e liderança', 'Planejamento estratégico']
         }
     };
-    
+
     const profile = profileData[winningProfile];
-    
-    // Preencher resultados
+
     document.getElementById('profileTitle').textContent = profile.title;
-    document.getElementById('profileDescription').innerHTML = `<p>${profile.description}</p>`;
-    
+
+    document.getElementById('profileDescription').innerHTML =
+        `<p>${profile.description}</p>`;
+
     document.getElementById('pathSummary').innerHTML = `
         <p><strong>${profile.path}</strong></p>
         <p>Trilha completa desde fundamentos até especialização avançada.</p>
     `;
-    
+
     document.getElementById('careerSummary').innerHTML = `
         <ul>
             ${profile.careers.map(career => `<li>${career}</li>`).join('')}
         </ul>
     `;
-    
+
     document.getElementById('skillsSummary').innerHTML = `
         <ul>
             ${profile.skills.map(skill => `<li>${skill}</li>`).join('')}
         </ul>
     `;
-    
-    // Salvar perfil para o modal
+
     window.selectedProfile = winningProfile;
 }
 
@@ -351,23 +329,21 @@ function resetQuiz() {
     quizAnswers = [];
     quizScores = { DEV: 0, ANA: 0, DES: 0, SUP: 0, GP: 0 };
     currentQuizStep = 1;
-    
-    // Esconder resultados
+
     document.getElementById('results').style.display = 'none';
-    
-    // Mostrar primeiro step
+
     document.querySelectorAll('.quiz-step').forEach(step => {
         step.classList.remove('active');
-        // Reabilitar botões
+
         step.querySelectorAll('.quiz-option').forEach(btn => {
             btn.disabled = false;
             btn.style.borderColor = '';
             btn.style.backgroundColor = '';
         });
     });
+
     document.getElementById('step1').classList.add('active');
-    
-    // Resetar progresso
+
     document.getElementById('progressIndicator').style.display = 'block';
     document.getElementById('progressFill').style.width = '8.33%';
     document.getElementById('currentStep').textContent = '1';
@@ -377,8 +353,7 @@ function resetQuiz() {
 function openModal() {
     const modal = document.getElementById('detailsModal');
     modal.classList.add('active');
-    
-    // Gerar módulos baseado no perfil identificado
+
     const modules = {
         DEV: [
             { title: 'Fundamentos de HTML e CSS', duration: '3 semanas' },
@@ -431,43 +406,49 @@ function openModal() {
             { title: 'Certificação PMP/Scrum Master', duration: '4 semanas' }
         ]
     };
-    
+
     const selectedProfile = window.selectedProfile || 'DEV';
     const selectedModules = modules[selectedProfile];
-    const modulesHTML = selectedModules.map((module, index) => `
+
+    const modulesHTML = selectedModules
+        .map(
+            (module, index) => `
         <div style="padding: 1rem; background-color: var(--color-bg-alt); margin-bottom: 1rem; border-radius: 8px; border-left: 4px solid var(--color-primary);">
             <strong>Módulo ${index + 1}: ${module.title}</strong>
-            <p style="color: var(--color-text-light); margin-top: 0.5rem;">Duração: ${module.duration}</p>
+            <p style="color: var(--color-text-light); margin-top: 0.5rem;">
+                Duração: ${module.duration}
+            </p>
         </div>
-    `).join('');
-    
+    `
+        )
+        .join('');
+
     document.getElementById('modalModules').innerHTML = modulesHTML;
-    
-    // Prevenir scroll do body
+
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
     const modal = document.getElementById('detailsModal');
     modal.classList.remove('active');
-    
-    // Restaurar scroll do body
     document.body.style.overflow = 'auto';
 }
 
 // Fechar modal ao clicar fora
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const modal = document.getElementById('detailsModal');
     if (event.target === modal) {
         closeModal();
     }
 });
 
-// Scroll suave para âncoras
+// Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+
         const target = document.querySelector(this.getAttribute('href'));
+
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
@@ -477,13 +458,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animação de entrada para elementos
+// Animação de entrada
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -493,13 +474,16 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Aplicar animação aos cards
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.feature-card, .team-card, .approach-card, .benefit-item, .value-item');
-    
+document.addEventListener('DOMContentLoaded', function () {
+    const animatedElements = document.querySelectorAll(
+        '.feature-card, .team-card, .approach-card, .benefit-item, .value-item'
+    );
+
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
         observer.observe(el);
     });
 });
