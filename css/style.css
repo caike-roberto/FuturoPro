@@ -416,19 +416,19 @@ body {
 }
 
 .team-photo {
-    height: 300px; /* pode ajustar para o tamanho ideal */
+    width: 100%;
+    height: 300px;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .team-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;      /* mantém proporção sem distorcer */
-    object-position: center; /* garante foco no meio */
+    object-fit: cover;
+    object-position: center;
     display: block;
 }
- 
+
 
 .team-info {
     padding: 2rem;
